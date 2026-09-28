@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ArenaXP and SwimXP: information needed from Ali and Laila</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141816;--panel:#1c211e;--raise:#232925;--line:#313a35;--text:#e7ebe5;--muted:#9aa59d;--sage:#9fbba2;--sage-d:#5f7d64;--flag:#d8a94f;--danger:#d98a7a;
+--serif:"Newsreader",Georgia,"Times New Roman",serif;--sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}
+html{scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--sage)}
+:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
+/* static report (readable with no JavaScript) */
+#report{max-width:760px;margin:0 auto;padding:32px 20px;font:15px/1.5 Arial,sans-serif;color:#e7ebe5;background:#141816}
+#report h1{font:500 26px/1.2 Georgia,serif;margin:0 0 6px}
+#report h2{font:600 17px/1.3 Arial,sans-serif;color:#9fbba2;margin:28px 0 8px;border-bottom:1px solid #313a35;padding-bottom:4px}
+#report dt{font-weight:600;margin-top:12px}
+#report dd{margin:2px 0 0;white-space:pre-wrap;color:#cfd6cf}
+#report .empty{color:#6f7a72;font-style:italic}
+#report table{border-collapse:collapse;width:100%;font-size:13px}
+#report td,#report th{border:1px solid #313a35;padding:4px 6px;text-align:left;vertical-align:top}
+body.js #report{display:none}
+/* app */
+.top{position:sticky;top:0;z-index:5;background:rgba(20,24,22,.96);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top,0px) + 12px) 20px 12px}
+.top-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.brand{font:500 18px/1 var(--serif);letter-spacing:.01em}
+.brand span{color:var(--sage)}
+.meter{flex:1;min-width:180px;display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--sage);transition:width .3s}
+.meter b{font-weight:600;font-variant-numeric:tabular-nums;min-width:3.2em}
+.pri-left{color:var(--flag);font-size:14px;white-space:nowrap}
+.btn{font:600 15px var(--sans);border-radius:8px;border:1px solid var(--sage);background:var(--sage);color:#142017;padding:10px 16px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--sage)}
+.btn:disabled{opacity:.5;cursor:default}
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;padding:32px 20px calc(env(safe-area-inset-bottom,0px) + 80px)}
+nav.rail{position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow:auto}
+.rail h4{font:600 13px var(--sans);color:var(--muted);margin:18px 0 6px}
+.rail h4:first-child{margin-top:0}
+.rail a{display:grid;grid-template-columns:3px 1fr auto;gap:10px;align-items:center;text-decoration:none;color:var(--text);padding:6px 0;font-size:14px}
+.rail a .fill{width:3px;height:22px;background:var(--line);border-radius:2px;position:relative;overflow:hidden}
+.rail a .fill i{position:absolute;left:0;bottom:0;width:100%;background:var(--sage)}
+.rail a small{color:var(--muted);font-variant-numeric:tabular-nums}
+.rail a.done small{color:var(--sage)}
+.intro-block{max-width:720px;margin-bottom:40px}
+.intro-block .client{color:var(--sage);font-weight:600;font-size:14px}
+.intro-block h1{font:500 clamp(32px,5vw,46px)/1.08 var(--serif);margin:6px 0 10px}
+.intro-block .due{color:var(--flag);font-weight:600;margin-bottom:14px}
+.intro-block ol{padding-left:20px;color:#cfd6cf}
+.intro-block li{margin:4px 0}
+.notice{border:1px solid var(--flag);color:var(--flag);border-radius:8px;padding:10px 14px;margin:0 0 20px;font-size:14px;display:none}
+.notice.on{display:block}
+.notice.info{border-color:var(--sage);color:var(--sage)}
+section.sec{border-top:1px solid var(--line);padding:30px 0 12px;max-width:760px}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.sec-head .grp{color:var(--muted);font-size:14px}
+.sec-head h2{font:500 28px/1.15 var(--serif);margin:0;flex-basis:100%}
+.tag{font-size:12px;font-weight:600;border-radius:999px;padding:2px 9px;border:1px solid var(--line);color:var(--muted)}
+.tag.pri{border-color:var(--flag);color:var(--flag)}
+.tag.layla{border-color:var(--sage-d);color:var(--sage)}
+.sec-intro{background:var(--panel);border-left:3px solid var(--sage-d);padding:12px 16px;margin:14px 0 6px;color:#cfd6cf;font-size:15px;border-radius:0 6px 6px 0}
+.q{padding:18px 0;border-bottom:1px solid #252c28}
+.q:last-child{border-bottom:0}
+.q label.ql,.q .ql{display:grid;grid-template-columns:2.2em 1fr;font-weight:500;font-size:16px}
+.q .num{color:var(--muted);font-variant-numeric:tabular-nums}
+.q .hint{grid-column:2;color:var(--muted);font-size:14px;margin-top:3px;font-weight:400}
+.q .ans{margin:10px 0 0 2.2em}
+.q.ok .num{color:var(--sage)}
+textarea,input[type=text],input[type=url],input[type=email]{width:100%;font:15px/1.5 var(--sans);color:var(--text);background:var(--raise);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+textarea{min-height:76px;resize:vertical}
+textarea:focus,input:focus{border-color:var(--sage-d);outline:none;box-shadow:0 0 0 2px rgba(159,187,162,.25)}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{cursor:pointer}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts span{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:15px;background:var(--raise)}
+.opts input:checked+span{background:var(--sage);border-color:var(--sage);color:#142017;font-weight:600}
+.opts input:focus-visible+span{outline:2px solid var(--sage);outline-offset:2px}
+.note{margin-top:10px}
+.files{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.file{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:14px}
+.file .n{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file .s{color:var(--muted)}
+.lnk{background:none;border:0;color:var(--sage);font:600 14px var(--sans);cursor:pointer;padding:4px}
+.lnk.rm{color:var(--danger)}
+.drop{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border:1px dashed var(--line);border-radius:8px;padding:12px}
+.drop input[type=file]{font-size:14px;color:var(--muted)}
+.linkrow{margin-top:8px}
+.ctable{width:100%;border-collapse:collapse;font-size:14px}
+.ctable th{text-align:left;color:var(--muted);font-weight:600;padding:6px 4px}
+.ctable td{padding:3px 4px}
+.ctable input,.ctable select{width:100%;font:14px var(--sans);color:var(--text);background:var(--raise);border:1px solid var(--line);border-radius:6px;padding:7px 8px}
+.cwrap{overflow-x:auto}
+.crow-actions{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.send{max-width:760px;border-top:1px solid var(--line);padding-top:30px;margin-top:20px}
+.send h2{font:500 28px/1.15 var(--serif);margin:0 0 8px}
+.send p{color:#cfd6cf}
+.saved{font-size:13px;color:var(--muted)}
+.progress-box{display:none;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin:6px 0 4px;font-size:15px;color:#cfd6cf}.progress-box.on{display:block}.progress-box.good{border-color:var(--sage);color:var(--sage)}.progress-box.bad{border-color:var(--danger);color:var(--danger)}
+.mac{display:none;max-width:760px;background:var(--panel);border:1px solid var(--sage-d);border-radius:10px;padding:16px 18px;margin-bottom:30px}
+.mac.on{display:block}
+.mac h3{font:500 20px var(--serif);margin:0 0 6px}
+.mac .row{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+@media (max-width:900px){.wrap{grid-template-columns:minmax(0,1fr);gap:0}.ctable{min-width:720px}nav.rail{display:none}.q .ans{margin-left:0}.q label.ql,.q .ql{grid-template-columns:2em 1fr}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}}
+</style>
+</head>
+<body>
+<!--REPORT-->
+<section id="report"><h1>ArenaXP and SwimXP: information needed from Ali and Laila</h1><p>Open this file in Chrome, Edge or Safari on a laptop or computer to fill it in.</p></section>
+<!--/REPORT-->
+<noscript><p style="max-width:760px;margin:0 auto;padding:0 20px;color:#d8a94f">This form needs JavaScript. Open it in Chrome, Edge or Safari on a laptop or computer.</p></noscript>
+<div id="app"></div>
+<script type="application/json" id="baked">null</script>
+<script>
+const SECTIONS = [
+{id:"arena-a", group:"ArenaXP", title:"Packages and pricing", priority:true, owner:"Ali",
+ intro:"Our recommendation: three packages. $850 entry (Bus + Sport, 2 hours). Around $1,250 premium, the one we push hardest (adds grazing station, birthday jersey, swag bags and one adult add-on). Full day from $2,500. Parents pick the middle option most when it sits between a cheaper and a dearer one.",
+ qs:[
+ {id:"a1",type:"choice",label:"Do you agree with three packages at $850, around $1,250 and $2,500+?",options:["Yes, go with that","Yes, with changes","No, different structure"],note:"What would you change?"},
+ {id:"a2",label:"What should each package be called?",hint:"Plain names that say what is included beat clever ones."},
+ {id:"a3",label:"Maximum guests per package, and the price per extra guest."},
+ {id:"a4",label:"Youngest and oldest age you will take.",hint:"Games on the Bus only takes 8 to 17. Can ArenaXP take 5 to 7 year olds?"},
+ {id:"a5",label:"Which sport components can your staff deliver today with gear you already own? Which ones need buying?"},
+ {id:"a6",label:"Where is the bus based, how far will it travel, and what is the travel charge past that?"},
+ {id:"a7",label:"Deposit amount, cancellation policy, and wet-weather policy for the sport component."},
+ {id:"a8",type:"choice",label:"Food and drink on the bus?",options:["Allowed on the bus","Outside the bus only"]},
+ {id:"a9",label:"For each add-on (grazing station, golf simulator, jersey, balloons, catering): what does it cost you and what will you charge?"},
+ {id:"a10",type:"file",label:"Screenshots of Games on the Bus's current packages and prices."}
+]},
+{id:"arena-c", group:"ArenaXP", title:"Lead flow and bookings", priority:true, owner:"Ali",
+ intro:"Our recommendation: the QR code on the bus goes straight to a Build Your Party page with live available dates and an instant quote, because a parent standing at the bus is already interested. At events we add a second QR for a \"Win a free party\" entry, to collect contacts from people who aren't ready yet.",
+ qs:[
+ {id:"c1",type:"choice",label:"Agree with that QR split?",options:["Yes","No, something different"],note:"If no, what should a scan do?"},
+ {id:"c2",label:"Who answers WhatsApp, during what hours, and what happens after hours?"},
+ {id:"c3",label:"Where do bookings live now (calendar, spreadsheet, app)? How many party slots per weekend will you release?"},
+ {id:"c4",type:"choice",label:"How do you want to take deposits?",options:["Card online","Bank transfer","Both"]},
+ {id:"c5",label:"How many dates do you want to open each month, so dates sell out and scarcity is real?"},
+ {id:"c6",label:"After a party, what should happen automatically?",hint:"For example: photos sent, Google review request, referral voucher, rebooking reminder 11 months later."}
+]},
+{id:"access", group:"Setup", title:"Access we need", priority:true, owner:"Ali",
+ intro:"The domain is the one blocker. Nothing links from the QR codes until Crazy Domains clears it.",
+ qs:[
+ {id:"x1",type:"choice",label:"Has Crazy Domains approved the domain registration?",options:["Yes, approved","Still waiting","Not sure"],note:"Domain name, and who holds the Crazy Domains login"},
+ {id:"x2",label:"The WhatsApp Business number to connect to the website and CRM."},
+ {id:"x3",type:"choice",label:"Have you added mac@presciaiq.com.au as admin on the ArenaXP and SwimXP Instagram and Facebook pages?",options:["Done","Not yet","Pages don't exist yet"]},
+ {id:"x4",type:"choice",label:"Payment account for deposits",options:["Have Stripe","Have Square","Need one set up"],note:"Business name the account is under"}
+]},
+{id:"arena-b", group:"ArenaXP", title:"Customers and positioning", owner:"Ali",
+ qs:[
+ {id:"b1",label:"Tell us about the Sans Souci party: who booked, what they spent in total, and why they chose to spend it."},
+ {id:"b2",label:"Three reasons a parent books ArenaXP over Games on the Bus, Timezone or Glow Crazy.",hint:"Reasons a parent would repeat to a friend, not marketing lines."},
+ {id:"b3",label:"What worries a parent most when booking a party like this? Rank them.",hint:"Safety, screen time, mess, supervision, cost."},
+ {id:"b4",label:"Which suburbs do you most want bookings from? Any you won't travel to?"},
+ {id:"b5",label:"Staff voice: three words for how ArenaXP staff should sound, and three words or behaviours they should never use."},
+ {id:"b6",label:"The 5 questions parents ask most.",hint:"These become the WhatsApp auto-replies and the website FAQ."}
+]},
+{id:"arena-d", group:"ArenaXP", title:"Events and places to park", owner:"Ali",
+ intro:"Georges River Council doesn't allow trading in its parks and reserves without approval, so regular spots need a permit or private land.",
+ qs:[
+ {id:"d1",label:"Rank these for the first 90 days: private parties, markets and park-ups, school picnic days, game launch nights, shopping centre sessions."},
+ {id:"d2",label:"Which sites do you personally know someone at? Name and role.",hint:"Flower Power, Flip Out, gyms, the car yard, the food truck, markets, shopping centres."},
+ {id:"d3",label:"How many days a week can the bus realistically go out with the staff you have now?"},
+ {id:"d4",label:"What licence class does the bus need, and who holds it besides you?"},
+ {id:"d5",type:"choice",label:"March 2027: which does bus 1 commit to?",options:["Easter Show (19 to 30 March)","Eid shows (around 9 to 14 March)","Try both with a second operator"]},
+ {id:"d6",type:"choice",label:"Adult nights at launch?",options:["Yes","No","Later"],note:"If yes, who checks ID and runs the night?"},
+ {id:"d7",label:"Correct names for: the e-bike company, the Egyptian food truck on the Princes Highway, and the Friday night markets you mentioned."}
+]},
+{id:"arena-e", group:"ArenaXP", title:"Education programs for schools", owner:"Ali",
+ intro:"Our recommendation: pick one program and pilot it at the school that offered a whole-school booking. Road safety is the strongest because that school has already said yes.",
+ qs:[
+ {id:"e1",type:"choice",label:"Which program first?",options:["Road safety and e-bikes","STEM content creation","Coding","Brain training"]},
+ {id:"e2",label:"For that program, the outcome in one sentence.",hint:"What does a student know or do afterwards that they couldn't before?"},
+ {id:"e3",label:"Which curriculum area does it sit under (PDHPE, Technologies, other)?"},
+ {id:"e4",label:"Who writes the lesson content, and do instructors need a qualification or accreditation?"},
+ {id:"e5",label:"Price per student, minimum numbers, and students per day."},
+ {id:"e6",label:"The school that offered 2,000 students: school name, contact, and when they want it."},
+ {id:"e7",label:"Public liability cover amount, and do you have written risk assessments?",hint:"Many schools ask for $20 million."},
+ {id:"e8",label:"The e-bike company: your contact there, and what they would supply."}
+]},
+{id:"arena-f", group:"ArenaXP", title:"Partnerships and sponsorship", owner:"Ali",
+ qs:[
+ {id:"f1",label:"Which caterers and balloon suppliers have agreed to the referral cut, and at what percentage?"},
+ {id:"f2",label:"What is the Harmony Cup: how many schools, how many kids, when does it run, and what does a sponsor get?"},
+ {id:"f3",label:"Which companies or people do you already know who could sponsor at $20,000 to $30,000 a year?"}
+]},
+{id:"arena-g", group:"ArenaXP", title:"Brand and look", owner:"Laila",
+ qs:[
+ {id:"g1",label:"Three websites you love and three you hate, with one line on why.",hint:"Paste links."},
+ {id:"g2",type:"file",label:"The Egypt-based designer's videos in full resolution.",hint:"Big files: paste a Google Drive or Dropbox link instead."},
+ {id:"g3",type:"file",label:"Photos of the finished bus: both sides, back, and inside the gaming zones."},
+ {id:"g4",type:"file",label:"Merchandise style guide, logo files (vector) and colour codes.",hint:"Is the dripping paint style final?"},
+ {id:"g5",label:"Any brand colours or styles that are off limits?"}
+]},
+{id:"contacts", group:"ArenaXP", title:"Contacts for outreach", owner:"Ali",
+ intro:"Everyone you know who could book, host or partner: principals, council events teams, caterers, balloon suppliers, site owners, sponsors. We write the approaches; you sign them off.",
+ qs:[{id:"k1",type:"contacts",label:"Add one row per person."}]},
+{id:"swim-a", group:"SwimXP", title:"Programs and levels", owner:"Ali",
+ intro:"Our recommendation: ongoing enrolment with fortnightly direct debit, not 12-week terms. Terms create a drop-off point every quarter. Ongoing billing is how you reach $5,000 to $6,000 per child.",
+ qs:[
+ {id:"s1",type:"choice",label:"Term-based or ongoing enrolment?",options:["Ongoing with direct debit","Terms"],note:"If terms: how many weeks and price per term"},
+ {id:"s2",label:"Age range for each level, class size, lesson length, and price per lesson."},
+ {id:"s3",label:"Confirm the level order, which language the names come from, and whether the local Aboriginal Land Council or an Elder has approved their use.",hint:"Beeweeloo, abalone, oyster, crab, sea turtle, seal, fish, octopus, stingray, shark, dolphin, whale. We need approval confirmed before the names go on the website."},
+ {id:"s4",label:"What can a child do when they finish the final level?",hint:"For example: swim a set distance, tread water, survival skills."},
+ {id:"s5",label:"What else will run: squads, adult lessons, school programs, lane hire, parties, holiday intensives?"},
+ {id:"s6",label:"Instructor qualifications (AUSTSWIM, Swim Australia, other)?"},
+ {id:"s7",label:"What happens when a child misses a lesson: make-up, credit, or nothing?"},
+ {id:"s8",type:"file",label:"Kids' animal images for the levels.",hint:"Or two or three examples of the illustration style you like."}
+]},
+{id:"swim-b", group:"SwimXP", title:"Parents and competitors", owner:"Ali",
+ qs:[
+ {id:"t1",label:"Which suburbs do most of your families come from?"},
+ {id:"t2",label:"Which swim schools are nearest, what do they charge, and what does SwimXP do better?"},
+ {id:"t3",label:"The 5 questions parents ask most about lessons."}
+]},
+{id:"swim-c", group:"SwimXP", title:"The facility and cafe", owner:"Ali",
+ qs:[
+ {id:"u1",label:"Address, opening hours, parking, water temperature, change rooms, parent viewing area."},
+ {id:"u2",label:"Which groups have regular lane bookings, and when can the public use the pool?"},
+ {id:"u3",label:"The cafe: menu style, hours, and can people walk in without paying pool entry?"},
+ {id:"u4",label:"Recovery: what is actually there (sauna, ice bath, spa)?",hint:"We only rank SwimXP as a recovery centre if people can do recovery there."},
+ {id:"u5",type:"file",label:"Photos of the pool build."}
+]},
+{id:"swim-d", group:"SwimXP", title:"Launch", owner:"Ali",
+ qs:[
+ {id:"v1",label:"Confirm: handover 28 October, soft launch date, public free week dates, government launch date."},
+ {id:"v2",type:"choice",label:"Can we film the government launch and use it in marketing?",options:["Yes","No","Need to check"]},
+ {id:"v3",label:"How many people are on the waitlist so far, and where are their details kept?"},
+ {id:"v4",type:"choice",label:"Launch offer: one winner gets a year of lessons, every other entrant gets two free trial lessons. Agree?",options:["Yes","No, different offer"],note:"If no, what offer?"},
+ {id:"v5",label:"Which local shops and cafes will take an A-frame with the QR code?"},
+ {id:"v6",label:"Which local Facebook groups are you and Laila members of?"},
+ {id:"v7",type:"choice",label:"Registered for Active and Creative Kids vouchers?",options:["Yes","No","Didn't know about it"],hint:"Eligible families get two $50 vouchers a year per school-aged child. Registering before launch lets families use them on day one."}
+]},
+{id:"swim-e", group:"SwimXP", title:"Look and feel", owner:"Laila",
+ qs:[
+ {id:"w1",label:"Three swim school or leisure websites you like and three you don't.",hint:"Paste links."}
+]}
+];
+(function(){
+"use strict";
+var FORM_KEY="arenaxp-swimxp-intake-v1", DB_NAME="arenaxp-swimxp-intake", MAX_MB=20;
+var SEND_TO="mac@presciaiq.com.au";
+/* Paste the Google Apps Script web app URL between the quotes. Empty = file-only mode. */
+var ENDPOINT="https://script.google.com/macros/s/AKfycbzcmTjd9J53TH1LDwCpz01rTqdbQ5aozNsprDOG6t2S8zw2eplzruWy5XqSEANGySbO/exec";
+var SECRET="pq-9b4319f0bc9ada60", CLIENT="ArenaXP and SwimXP";
+
+var CTYPES=["School or principal","Council events team","Caterer","Balloons","Site or venue owner","Sponsor","Event organiser","Other"];
+document.body.classList.add("js");
+
+var state={answers:{},updatedAt:0}, FILES={}, db=null, storageOK=true, fromBaked=null;
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});}
+function el(tag,attrs,html){var e=document.createElement(tag);if(attrs)for(var k in attrs){if(k==="class")e.className=attrs[k];else e.setAttribute(k,attrs[k]);}if(html!=null)e.innerHTML=html;return e;}
+function allQs(){var out=[];SECTIONS.forEach(function(s){s.qs.forEach(function(q,i){out.push({s:s,q:q,n:i+1});});});return out;}
+function fmtSize(b){return b>1048576?(b/1048576).toFixed(1)+" MB":Math.max(1,Math.round(b/1024))+" KB";}
+function fmtDate(t){var d=new Date(t);return d.toLocaleString("en-AU",{weekday:"short",day:"numeric",month:"short",year:"numeric",hour:"numeric",minute:"2-digit"});}
+
+/* storage */
+function loadLocal(){try{var r=localStorage.getItem(FORM_KEY);return r?JSON.parse(r):null;}catch(e){storageOK=false;return null;}}
+var saveTimer=null;
+function save(){state.updatedAt=Date.now();clearTimeout(saveTimer);saveTimer=setTimeout(function(){
+  try{localStorage.setItem(FORM_KEY,JSON.stringify(state));stamp("Saved on this computer "+new Date().toLocaleTimeString("en-AU",{hour:"numeric",minute:"2-digit"}));}
+  catch(e){storageOK=false;showNotice("autosave","Autosave isn't working in this browser. Press Send to Mac before you close the page so nothing is lost.");}
+},300);}
+function stamp(t){var s=document.querySelectorAll(".saved");for(var i=0;i<s.length;i++)s[i].textContent=t;}
+function openDB(){return new Promise(function(res){try{var r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=function(){r.result.createObjectStore("files");};r.onsuccess=function(){res(r.result);};r.onerror=function(){res(null);};}catch(e){res(null);}});}
+function dbPut(k,v){return new Promise(function(res){if(!db)return res(false);try{var t=db.transaction("files","readwrite");t.objectStore("files").put(v,k);t.oncomplete=function(){res(true);};t.onerror=function(){res(false);};}catch(e){res(false);}});}
+function dbAll(){return new Promise(function(res){if(!db)return res({});try{var out={},t=db.transaction("files","readonly"),st=t.objectStore("files"),c=st.openCursor();c.onsuccess=function(){var cur=c.result;if(cur){out[cur.key]=cur.value;cur.continue();}else res(out);};c.onerror=function(){res({});};}catch(e){res({});}});}
+function persistFiles(qid){dbPut(qid,FILES[qid]||[]).then(function(ok){if(!ok)showNotice("files","Attachments can't be kept in this browser after you close it. Press Send to Mac once you've added them.");});}
+
+/* completion */
+function isDone(q){var a=state.answers[q.id];
+  if(q.type==="choice")return !!(a&&a.choice);
+  if(q.type==="file")return (FILES[q.id]&&FILES[q.id].length>0)||!!(a&&a.link&&a.link.trim());
+  if(q.type==="contacts")return !!(a&&a.rows&&a.rows.some(function(r){return (r.name||"").trim()||(r.org||"").trim();}));
+  return !!(a&&String(a).trim());}
+function progress(){var qs=allQs(),done=0,priLeft=0;
+  qs.forEach(function(x){var d=isDone(x.q);if(d)done++;else if(x.s.priority)priLeft++;
+    var qe=document.getElementById("q-"+x.q.id);if(qe)qe.classList.toggle("ok",d);});
+  var pct=Math.round(done/qs.length*100);
+  document.getElementById("barfill").style.width=pct+"%";document.getElementById("pct").textContent=pct+"%";
+  document.getElementById("prileft").textContent=priLeft?priLeft+" priority "+(priLeft===1?"answer":"answers")+" left":"Priority answers done";
+  SECTIONS.forEach(function(s){var n=0;s.qs.forEach(function(q){if(isDone(q))n++;});var a=document.getElementById("rail-"+s.id);if(!a)return;
+    a.querySelector("small").textContent=n+"/"+s.qs.length;a.querySelector(".fill i").style.height=(n/s.qs.length*100)+"%";a.classList.toggle("done",n===s.qs.length);});}
+
+var notices={};
+function showNotice(key,msg,info){if(notices[key])return;notices[key]=1;var n=el("div",{"class":"notice on"+(info?" info":""),role:"status"},esc(msg));document.getElementById("notices").appendChild(n);}
+
+/* render */
+function render(){
+  var app=document.getElementById("app");
+  var top=el("header",{"class":"top"});
+  top.innerHTML='<div class="top-inner"><div class="brand">Prescia<span>IQ</span></div><div class="meter"><div class="bar" aria-hidden="true"><i id="barfill"></i></div><b id="pct">0%</b><span class="pri-left" id="prileft"></span></div><button class="btn" type="button" id="sendTop">Send to Mac</button></div>';
+  app.appendChild(top);
+  var wrap=el("div",{"class":"wrap"}),rail=el("nav",{"class":"rail","aria-label":"Sections"}),main=el("main");
+  var lastGroup=null;
+  SECTIONS.forEach(function(s){var g=s.priority?"Start here":s.group;if(g!==lastGroup){rail.appendChild(el("h4",null,esc(g)));lastGroup=g;}
+    var a=el("a",{href:"#sec-"+s.id,id:"rail-"+s.id},'<span class="fill"><i></i></span><span>'+esc(s.title)+(s.priority?' <span style="color:var(--flag)">&#9679;</span>':"")+'</span><small></small>');rail.appendChild(a);});
+  main.innerHTML='<div class="mac" id="macPanel"></div><div class="intro-block"><div class="client">ArenaXP and SwimXP, website and CRM build</div><h1>Information needed from Ali and Laila</h1><div class="due">Priority items by Friday 2 October. Everything else by Friday 9 October.</div><p>Everything we need goes in here. Rough dot points are fine: we turn your answers into website copy, booking flows and outreach.</p><ol><li>Start with the sections marked Priority.</li><li>Your answers and files save on this computer as you type, so you can close the page and come back.</li><li>Questions tagged Laila are the visual and brand calls.</li><li>When you\'re done, press <b>Send to Mac</b>. Your answers and files go straight to Mac. You can send again any time: the newest version replaces the old one.</li></ol><p class="saved"></p></div><div id="notices"></div>';
+  SECTIONS.forEach(function(s){main.appendChild(renderSection(s));});
+  var send=el("section",{"class":"send",id:"send"});
+  send.innerHTML='<h2>Send your answers to Mac</h2><p>Your answers and files go straight to Mac. Leave this page open until it says they\'re sent. You can send again any time: the newest version replaces the old one.</p><div class="progress-box" id="sendStatus" role="status"></div><div class="crow-actions"><button class="btn" type="button" id="sendBottom">Send to Mac</button><button class="btn ghost" type="button" id="backupBottom">Download a backup copy</button></div><p class="saved"></p>';
+  main.appendChild(send);
+  wrap.appendChild(rail);wrap.appendChild(main);app.appendChild(wrap);
+  document.getElementById("sendTop").onclick=sendToMac;document.getElementById("sendBottom").onclick=sendToMac;document.getElementById("backupBottom").onclick=exportFile;
+}
+function renderSection(s){
+  var sec=el("section",{"class":"sec",id:"sec-"+s.id});
+  var tags=(s.priority?'<span class="tag pri">Priority</span>':"")+(s.owner==="Laila"?'<span class="tag layla">Laila</span>':"");
+  sec.innerHTML='<div class="sec-head"><span class="grp">'+esc(s.group)+'</span>'+tags+'<h2>'+esc(s.title)+'</h2></div>'+(s.intro?'<div class="sec-intro">'+esc(s.intro)+'</div>':"");
+  s.qs.forEach(function(q,i){sec.appendChild(renderQ(q,i+1,s));});return sec;}
+function head(q,n,forId){var h='<span class="num">'+n+'</span><span>'+esc(q.label)+'</span>'+(q.hint?'<span class="hint">'+esc(q.hint)+'</span>':"");
+  return forId?'<label class="ql" for="'+forId+'">'+h+'</label>':'<div class="ql">'+h+'</div>';}
+function renderQ(q,n){
+  var box=el("div",{"class":"q",id:"q-"+q.id}),a=state.answers[q.id];
+  if(!q.type){box.innerHTML=head(q,n,"in-"+q.id);var ans=el("div",{"class":"ans"});var t=el("textarea",{id:"in-"+q.id,rows:"3"});t.value=a||"";
+    t.addEventListener("input",function(){state.answers[q.id]=t.value;grow(t);save();progress();});ans.appendChild(t);box.appendChild(ans);setTimeout(function(){grow(t);},0);}
+  else if(q.type==="choice"){box.innerHTML=head(q,n);var ans2=el("div",{"class":"ans"}),opts=el("div",{"class":"opts",role:"radiogroup"});a=a||{};
+    q.options.forEach(function(o,i){var lab=el("label");var r=el("input",{type:"radio",name:"r-"+q.id,value:o});if(a.choice===o)r.checked=true;
+      r.addEventListener("change",function(){var cur=state.answers[q.id]||{};cur.choice=o;state.answers[q.id]=cur;save();progress();});lab.appendChild(r);lab.appendChild(el("span",null,esc(o)));opts.appendChild(lab);});
+    ans2.appendChild(opts);
+    var nt=el("textarea",{"class":"note",rows:"2",placeholder:q.note||"Anything to add?","aria-label":q.note||"Notes"});nt.value=a.note||"";
+    nt.addEventListener("input",function(){var cur=state.answers[q.id]||{};cur.note=nt.value;state.answers[q.id]=cur;grow(nt);save();});ans2.appendChild(nt);box.appendChild(ans2);}
+  else if(q.type==="file"){box.innerHTML=head(q,n);box.appendChild(renderFiles(q));}
+  else if(q.type==="contacts"){box.innerHTML=head(q,n);box.appendChild(renderContacts(q));}
+  return box;}
+function grow(t){t.style.height="auto";t.style.height=Math.max(76,t.scrollHeight+2)+"px";}
+
+function renderFiles(q){
+  var ans=el("div",{"class":"ans"}),a=state.answers[q.id]||{};
+  var drop=el("div",{"class":"drop"});var inp=el("input",{type:"file",multiple:"",id:"in-"+q.id,"aria-label":"Add files"});
+  drop.appendChild(inp);drop.appendChild(el("span",{"class":"saved",style:"font-size:13px"},"Up to "+MAX_MB+" MB per file"));ans.appendChild(drop);
+  var list=el("div",{"class":"files"});ans.appendChild(list);
+  var lk=el("input",{type:"url","class":"linkrow",placeholder:"Or paste a Google Drive, Dropbox or WeTransfer link","aria-label":"Shared folder link"});lk.value=a.link||"";
+  lk.addEventListener("input",function(){var cur=state.answers[q.id]||{};cur.link=lk.value;state.answers[q.id]=cur;save();progress();});ans.appendChild(lk);
+  function draw(){list.innerHTML="";(FILES[q.id]||[]).forEach(function(f,i){var row=el("div",{"class":"file"});row.innerHTML='<span class="n">'+esc(f.name)+'</span><span class="s">'+fmtSize(f.size)+'</span>';
+    var dl=el("button",{"class":"lnk",type:"button"},"Download");dl.onclick=function(){downloadData(f.data,f.name);};
+    var rm=el("button",{"class":"lnk rm",type:"button"},"Remove");rm.onclick=function(){FILES[q.id].splice(i,1);persistFiles(q.id);state.updatedAt=Date.now();save();draw();progress();};
+    row.appendChild(dl);row.appendChild(rm);list.appendChild(row);});}
+  inp.addEventListener("change",function(){var fl=Array.prototype.slice.call(inp.files);inp.value="";
+    fl.forEach(function(file){if(file.size>MAX_MB*1048576){showNotice("big-"+file.name,file.name+" is over "+MAX_MB+" MB. Put it in a Google Drive or Dropbox folder and paste the link instead.");return;}
+      var r=new FileReader();r.onload=function(){FILES[q.id]=FILES[q.id]||[];FILES[q.id].push({name:file.name,type:file.type,size:file.size,data:r.result,uploaded:false});persistFiles(q.id);save();draw();progress();};r.readAsDataURL(file);});});
+  draw();return ans;}
+
+function renderContacts(q){
+  var ans=el("div",{"class":"ans"}),a=state.answers[q.id]||{rows:[]};if(!a.rows)a.rows=[];state.answers[q.id]=a;
+  var wrapT=el("div",{"class":"cwrap"}),tbl=el("table",{"class":"ctable"});
+  tbl.innerHTML='<thead><tr><th>Name</th><th>Organisation</th><th>Type</th><th>Phone</th><th>Email</th><th>Notes</th><th></th></tr></thead>';
+  var tb=el("tbody");tbl.appendChild(tb);wrapT.appendChild(tbl);ans.appendChild(wrapT);
+  var fields=["name","org","type","phone","email","notes"];
+  function draw(){tb.innerHTML="";a.rows.forEach(function(r,i){var tr=el("tr");
+    fields.forEach(function(f){var td=el("td"),c;
+      if(f==="type"){c=el("select",{"aria-label":"Type"});c.appendChild(el("option",{value:""},"Choose"));CTYPES.forEach(function(t){var o=el("option",{value:t},esc(t));if(r.type===t)o.selected=true;c.appendChild(o);});c.addEventListener("change",function(){r.type=c.value;save();});}
+      else{c=el("input",{type:f==="email"?"email":"text","aria-label":f});c.value=r[f]||"";c.addEventListener("input",function(){r[f]=c.value;save();progress();});}
+      td.appendChild(c);tr.appendChild(td);});
+    var td=el("td"),rm=el("button",{"class":"lnk rm",type:"button","aria-label":"Remove row"},"Remove");rm.onclick=function(){a.rows.splice(i,1);save();draw();progress();};td.appendChild(rm);tr.appendChild(td);tb.appendChild(tr);});}
+  var acts=el("div",{"class":"crow-actions"});var add=el("button",{"class":"btn ghost",type:"button"},"Add a contact");add.onclick=function(){a.rows.push({});save();draw();var ins=tb.querySelectorAll("tr:last-child input");if(ins[0])ins[0].focus();};
+  var csv=el("button",{"class":"btn ghost",type:"button"},"Download contacts as CSV");csv.onclick=exportCSV;
+  acts.appendChild(add);acts.appendChild(csv);ans.appendChild(acts);
+  if(!a.rows.length)a.rows.push({},{},{});draw();return ans;}
+
+/* output */
+function answerText(q){var a=state.answers[q.id];
+  if(q.type==="choice"){if(!a||(!a.choice&&!a.note))return "";return (a.choice||"No option picked")+(a.note?"\n"+a.note:"");}
+  if(q.type==="file"){var f=(FILES[q.id]||[]).map(function(x){return x.name+" ("+fmtSize(x.size)+")";});if(a&&a.link)f.push("Link: "+a.link);return f.join("\n");}
+  if(q.type==="contacts"){return "";}
+  return a||"";}
+function contactRows(){var a=state.answers.k1;return a&&a.rows?a.rows.filter(function(r){return (r.name||"").trim()||(r.org||"").trim();}):[];}
+function buildReport(ts){var h='<h1>ArenaXP and SwimXP: answers from Ali and Laila</h1><p>Sent '+esc(fmtDate(ts))+'. To download attachments, open this file in Chrome, Edge or Safari on a laptop.</p>';
+  SECTIONS.forEach(function(s){h+='<h2>'+esc(s.group+": "+s.title)+'</h2>';
+    if(s.qs[0].type==="contacts"){var rows=contactRows();if(!rows.length){h+='<p class="empty">No contacts added.</p>';return;}
+      h+='<table><tr><th>Name</th><th>Organisation</th><th>Type</th><th>Phone</th><th>Email</th><th>Notes</th></tr>';rows.forEach(function(r){h+='<tr><td>'+esc(r.name)+'</td><td>'+esc(r.org)+'</td><td>'+esc(r.type)+'</td><td>'+esc(r.phone)+'</td><td>'+esc(r.email)+'</td><td>'+esc(r.notes)+'</td></tr>';});h+='</table>';return;}
+    h+='<dl>';s.qs.forEach(function(q,i){var t=answerText(q);h+='<dt>'+(i+1)+'. '+esc(q.label)+'</dt><dd'+(t?'':' class="empty"')+'>'+(t?esc(t):'Not answered')+'</dd>';});h+='</dl>';});
+  return h;}
+
+/* online sending */
+var sending=false;
+function status(msg,kind){var b=document.getElementById("sendStatus");if(!b)return;b.className="progress-box on"+(kind?" "+kind:"");b.textContent=msg;}
+function postJSON(o){o.secret=SECRET;return fetch(ENDPOINT,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(o),redirect:"follow"})
+  .then(function(r){return r.json();}).then(function(j){if(!j||!j.ok)throw new Error(j&&j.error||"No reply");return j;});}
+function payloadAnswers(){var out=[];SECTIONS.forEach(function(s){if(s.qs[0].type==="contacts")return;s.qs.forEach(function(q,i){out.push({section:s.group+": "+s.title,n:i+1,question:q.label,answer:answerText(q)});});});return out;}
+function sendToMac(){
+  if(sending)return;
+  if(!ENDPOINT){exportFile();return;}
+  document.getElementById("send").scrollIntoView({behavior:"smooth"});
+  if(!state.submissionId){state.submissionId="S"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);save();}
+  var list=[];for(var k in FILES)(FILES[k]||[]).forEach(function(f){list.push({qid:k,f:f});});
+  var todo=list.filter(function(x){return !x.f.uploaded;});
+  var qlabel={};allQs().forEach(function(x){qlabel[x.q.id]=x.q.label;});
+  sending=true;setBtns(true);status("Sending your answers...");
+  postJSON({action:"submit",client:CLIENT,submissionId:state.submissionId,answers:payloadAnswers(),contacts:contactRows(),fileCount:list.length})
+  .then(function(){var i=0;
+    function next(){if(i>=todo.length)return Promise.resolve();var x=todo[i++];status("Answers sent. Uploading file "+i+" of "+todo.length+": "+x.f.name);
+      return postJSON({action:"file",client:CLIENT,submissionId:state.submissionId,question:qlabel[x.qid]||x.qid,name:x.f.name,type:x.f.type,size:x.f.size,data:String(x.f.data).split(",")[1]||""})
+        .then(function(){x.f.uploaded=true;persistFiles(x.qid);return next();});}
+    return next();})
+  .then(function(){state.sentAt=Date.now();save();status("Sent. Mac has your answers"+(list.length?" and "+list.length+" file"+(list.length>1?"s":""):"")+". You can close this page.","good");})
+  .catch(function(){status("It didn't send, most likely the internet dropped. Your answers are still saved here. Press Send to Mac again, or use Download a backup copy and email that file to "+SEND_TO+".","bad");})
+  .then(function(){sending=false;setBtns(false);});
+}
+function setBtns(d){["sendTop","sendBottom"].forEach(function(id){var b=document.getElementById(id);if(b){b.disabled=d;b.textContent=d?"Sending...":"Send to Mac";}});}
+
+function exportFile(){
+  var ts=Date.now();
+  var clone=document.documentElement.cloneNode(true);
+  var body=clone.querySelector("body");body.classList.remove("js");if(!body.className)body.removeAttribute("class");
+  clone.querySelector("#app").innerHTML="";
+  clone.querySelector("#report").innerHTML=buildReport(ts);
+  var payload={exportedAt:ts,answers:state.answers,files:FILES};
+  clone.querySelector("#baked").textContent=JSON.stringify(payload).replace(/</g,"\\u003c");
+  var html="<!DOCTYPE html>\n"+clone.outerHTML;
+  var d=new Date(ts),name="ArenaXP-SwimXP-answers-"+d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")+".html";
+  downloadBlob(new Blob([html],{type:"text/html"}),name);
+  showNotice("sent-"+ts,"Saved "+name+" to your Downloads folder. Email that file to "+SEND_TO+".",true);
+}
+function exportText(){var t="ArenaXP and SwimXP: answers from Ali and Laila\n"+fmtDate(Date.now())+"\n";
+  SECTIONS.forEach(function(s){t+="\n== "+s.group+": "+s.title+" ==\n";
+    if(s.qs[0].type==="contacts"){contactRows().forEach(function(r){t+="- "+[r.name,r.org,r.type,r.phone,r.email,r.notes].filter(Boolean).join(" | ")+"\n";});return;}
+    s.qs.forEach(function(q,i){t+="\n"+(i+1)+". "+q.label+"\n"+(answerText(q)||"Not answered")+"\n";});});
+  downloadBlob(new Blob([t],{type:"text/plain"}),"ArenaXP-SwimXP-answers.txt");}
+function exportCSV(){var rows=contactRows(),q=function(v){return '"'+String(v||"").replace(/"/g,'""')+'"';};
+  var c="Name,Organisation,Type,Phone,Email,Notes\n"+rows.map(function(r){return [r.name,r.org,r.type,r.phone,r.email,r.notes].map(q).join(",");}).join("\n");
+  downloadBlob(new Blob([c],{type:"text/csv"}),"ArenaXP-contacts.csv");}
+function downloadBlob(b,name){var u=URL.createObjectURL(b),a=el("a",{href:u,download:name});document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove();},1500);}
+function downloadData(dataUrl,name){fetch(dataUrl).then(function(r){return r.blob();}).then(function(b){downloadBlob(b,name);});}
+
+function macPanel(){if(!fromBaked)return;var p=document.getElementById("macPanel");p.classList.add("on");
+  var nf=0;for(var k in FILES)nf+=(FILES[k]||[]).length;
+  p.innerHTML='<h3>Answers sent '+esc(fmtDate(fromBaked))+'</h3><p style="margin:0;color:#cfd6cf">Everything below is filled in from this file. '+nf+' attachment'+(nf===1?"":"s")+' inside, each with a Download button.</p>';
+  var row=el("div",{"class":"row"});var b1=el("button",{"class":"btn",type:"button"},"Download answers as text");b1.onclick=exportText;
+  var b2=el("button",{"class":"btn ghost",type:"button"},"Download contacts as CSV");b2.onclick=exportCSV;row.appendChild(b1);row.appendChild(b2);p.appendChild(row);}
+
+/* boot */
+openDB().then(function(d){db=d;return dbAll();}).then(function(local){
+  var baked=null;try{baked=JSON.parse(document.getElementById("baked").textContent);}catch(e){}
+  var ls=loadLocal();
+  if(baked&&(!ls||(ls.updatedAt||0)<=baked.exportedAt)){state={answers:baked.answers||{},updatedAt:baked.exportedAt};FILES=baked.files||{};fromBaked=baked.exportedAt;
+    try{localStorage.setItem(FORM_KEY,JSON.stringify(state));}catch(e){}for(var k in FILES)dbPut(k,FILES[k]);}
+  else{if(ls)state=ls;FILES=local||{};}
+  render();macPanel();progress();
+  if(!storageOK)showNotice("autosave","Autosave isn't working in this browser. Press Send to Mac before you close the page so nothing is lost.");
+  if(!db)showNotice("files","Attachments can't be kept in this browser after you close it. Press Send to Mac once you've added them.");
+  stamp(state.updatedAt&&!fromBaked?"Last saved "+fmtDate(state.updatedAt):"");
+});
+})();
+</script>
+</body></html>

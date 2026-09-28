@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ArenaXP events calendar, October 2026 to September 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#141816;--panel:#1c211e;--raise:#232925;--line:#2d3531;--text:#e7ebe5;--muted:#9aa59d;--sage:#9fbba2;
+--event:#9fbba2;--deadline:#d8a94f;--holiday:#8fb0c6;--period:#b7a6d4;--swim:#7fc4c0;
+--serif:"Newsreader",Georgia,"Times New Roman",serif;--sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 var(--sans);-webkit-font-smoothing:antialiased;padding-bottom:env(safe-area-inset-bottom,0px)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--sage);outline-offset:2px}
+a{color:var(--sage)}
+header{max-width:1320px;margin:0 auto;padding:calc(env(safe-area-inset-top,0px) + 28px) 20px 10px}
+.brand{font:500 16px var(--serif);color:var(--muted)}.brand b{font-weight:500;color:var(--text)}.brand span{color:var(--sage)}
+h1{font:500 clamp(28px,4vw,40px)/1.1 var(--serif);margin:8px 0 6px}
+.lead{color:#cfd6cf;max-width:760px;margin:0}
+.bar{max-width:1320px;margin:0 auto;padding:16px 20px;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;position:sticky;top:0;background:rgba(20,24,22,.96);z-index:4;border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;gap:6px}
+.nav button{background:var(--raise);border:1px solid var(--line);border-radius:8px;width:38px;height:38px;cursor:pointer;font-size:18px}
+.nav button:disabled{opacity:.35;cursor:default}
+.nav h2{font:500 24px var(--serif);margin:0 8px;min-width:10.5em}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{background:transparent;border:0;padding:8px 14px;cursor:pointer;color:var(--muted);font-weight:600}
+.seg button[aria-pressed=true]{background:var(--sage);color:#142017}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto}
+.filters label{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:999px;padding:5px 12px 5px 10px;cursor:pointer;font-size:14px;user-select:none}
+.filters input{position:absolute;opacity:0}
+.filters .sw{width:10px;height:10px;border-radius:3px}
+.filters input:not(:checked)+.sw{opacity:.25}
+.filters input:not(:checked)~span:last-child{color:var(--muted);text-decoration:line-through}
+.filters label:has(input:focus-visible){outline:2px solid var(--sage)}
+.dl{background:transparent;border:1px solid var(--sage);color:var(--sage);border-radius:8px;padding:7px 12px;font-weight:600;cursor:pointer;font-size:14px}
+.layout{max-width:1320px;margin:0 auto;padding:18px 20px 60px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border-left:1px solid var(--line);border-top:1px solid var(--line)}
+.dow{font-size:13px;font-weight:600;color:var(--muted);padding:6px 8px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.day{min-height:118px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:4px 0 6px;cursor:pointer;background:var(--bg);display:flex;flex-direction:column;gap:3px;text-align:left;border-top:0;border-left:0;font:inherit;color:inherit}
+.day:hover{background:#181d1a}
+.day.out{background:#111412;color:#56605a}
+.day.out .strip,.day.out .chip{opacity:.4}
+.day.sel{box-shadow:inset 0 0 0 2px var(--sage)}
+.dn{font-size:13px;font-weight:600;padding:0 8px;font-variant-numeric:tabular-nums;display:flex;justify-content:space-between}
+.day.today .dn span:first-child{background:var(--sage);color:#142017;border-radius:4px;padding:0 5px}
+.strip{height:16px;font-size:11px;line-height:16px;padding:0 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#142017;font-weight:600}
+.strip.cont{color:transparent}
+.strip.est{background-image:repeating-linear-gradient(135deg,transparent 0 5px,rgba(20,24,22,.25) 5px 8px)}
+.chip{margin:0 5px;font-size:12px;line-height:1.3;padding:3px 6px;border-radius:5px;background:var(--raise);border-left:3px solid;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip.est{border-left-style:dashed}
+.more{font-size:12px;color:var(--muted);padding:0 8px}
+.k-event{--c:var(--event)}.k-deadline{--c:var(--deadline)}.k-holiday{--c:var(--holiday)}.k-period{--c:var(--period)}.k-swim{--c:var(--swim)}
+.strip{background:var(--c)}.chip{border-left-color:var(--c)}
+.dot{display:none}
+aside{position:sticky;top:84px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;max-height:calc(100vh - 100px);overflow:auto}
+aside .empty{color:var(--muted)}
+.item{border-top:1px solid var(--line);padding:14px 0}
+.item:first-of-type{border-top:0;padding-top:4px}
+.item .type{font-size:13px;font-weight:600;color:var(--c);display:flex;gap:8px;align-items:center}
+.item .est-tag{font-size:12px;color:var(--muted);border:1px dashed var(--muted);border-radius:999px;padding:0 8px;font-weight:500}
+.item h3{font:500 22px/1.2 var(--serif);margin:4px 0 2px}
+.item .when{color:#cfd6cf;font-weight:600;font-size:14px;margin-bottom:8px}
+.item dt{font-size:13px;color:var(--muted);margin-top:8px}
+.item dd{margin:1px 0 0}
+.item .acts{display:flex;gap:12px;margin-top:12px;flex-wrap:wrap;font-size:14px}
+.item .acts button{background:none;border:0;color:var(--sage);font-weight:600;cursor:pointer;padding:0}
+.aside-h{font:500 18px var(--serif);margin:0 0 10px;color:var(--muted)}
+.list{display:none}
+.list.on{display:block}.grid-wrap.off{display:none}
+.list h3{font:500 22px var(--serif);margin:26px 0 6px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.list h3:first-child{margin-top:0}
+.row{display:grid;grid-template-columns:9.5em 1fr auto;gap:14px;align-items:baseline;padding:9px 6px;border-bottom:1px solid #222925;cursor:pointer;width:100%;background:none;border-left:0;border-right:0;border-top:0;text-align:left}
+.row:hover{background:#181d1a}
+.row .d{color:#cfd6cf;font-variant-numeric:tabular-nums;font-size:14px}
+.row .t{font-weight:500}
+.row .k{font-size:12px;font-weight:600;color:var(--c);white-space:nowrap}
+.row.sel{background:#1f2622}
+.foot{max-width:1320px;margin:0 auto;padding:0 20px 40px;color:var(--muted);font-size:13px}
+@media (max-width:980px){.layout{grid-template-columns:minmax(0,1fr)}aside{position:static;max-height:none}.filters{margin-left:0}}
+@media (max-width:640px){.bar{position:static}.day{min-height:62px}.strip{height:5px;font-size:0;padding:0}.chip{display:none}.more{display:none}
+.dots{display:flex;gap:3px;padding:0 6px;flex-wrap:wrap}.dot{display:block;width:7px;height:7px;border-radius:50%;background:var(--c)}
+.dn{padding:0 5px}.nav h2{min-width:0;font-size:20px}.row{grid-template-columns:7em 1fr}.row .k{grid-column:2}}
+@media (min-width:641px){.dots{display:none}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand"><b>Prescia<span>IQ</span></b> for ArenaXP</div>
+<h1>ArenaXP events calendar</h1>
+<p class="lead">Events, school holidays and the deadlines to book them, October 2026 to September 2027. Select any day or event to see the details. Dashed items are estimated dates to confirm closer to the time.</p>
+</header>
+<div class="bar">
+ <div class="nav"><button type="button" id="prev" aria-label="Previous month">&#8249;</button><h2 id="mlabel" aria-live="polite"></h2><button type="button" id="next" aria-label="Next month">&#8250;</button></div>
+ <div class="seg" role="group" aria-label="View"><button type="button" id="vMonth" aria-pressed="true">Month</button><button type="button" id="vList" aria-pressed="false">List</button></div>
+ <div class="filters" id="filters"></div>
+ <button type="button" class="dl" id="dlAll">Add all to my calendar</button>
+</div>
+<div class="layout">
+ <div>
+  <div class="grid-wrap" id="gridWrap"><div class="grid" id="grid"></div></div>
+  <div class="list" id="list"></div>
+ </div>
+ <aside id="detail" aria-live="polite"></aside>
+</div>
+<p class="foot">Sources are linked in each event. Checked 28 September 2026. School holiday dates for 2027 follow the usual pattern until the Department of Education publishes them.</p>
+<script>
+const ITEMS=[
+// periods (shown as strips)
+{id:"h-spring",kind:"holiday",title:"NSW spring school holidays",start:"2026-09-28",end:"2026-10-09",where:"All NSW public schools",fit:"Holiday sessions: $20 per 30 minutes or $30 day pass, on private sites.",action:"Lock 2 or 3 private sites this week: Flower Power, a gym, a cafe.",src:"https://www.nsw.gov.au/about-nsw/school-holidays"},
+{id:"p-picnic",kind:"period",title:"School picnic days and Christmas fetes",start:"2026-11-23",end:"2026-12-17",where:"Primary schools across St George and the Shire",fit:"Day bookings around $2,000. Your school has already asked for a day for 200 kids.",action:"Email principals and P&Cs by 16 October."},
+{id:"p-xmas",kind:"period",title:"Christmas markets and shopping centre trade",start:"2026-12-01",end:"2026-12-24",where:"Christmas markets, Lakemba Christmas lights, Southgate, Westfield",fit:"Supervised gaming sessions while parents shop. School-aged kids only, parent stays in the centre.",action:"Approach centre management by 23 October."},
+{id:"h-summer",kind:"holiday",title:"NSW summer school holidays",start:"2026-12-18",end:"2027-01-27",where:"All NSW public schools (Eastern division)",fit:"Peak for private parties. Coastal park-ups on approved or private sites.",action:"Open summer booking dates by 2 November.",src:"https://www.nsw.gov.au/about-nsw/school-holidays"},
+{id:"p-festival",kind:"period",est:true,title:"Sydney Festival",start:"2027-01-07",end:"2027-01-25",where:"Across Sydney, free family precincts",fit:"Family and free event precincts.",action:"Check the program when it is released (around November).",src:"https://www.sydneyfestival.org.au/"},
+{id:"p-ramadan",kind:"period",est:true,title:"Ramadan: Lakemba Nights during Ramadan",start:"2027-02-08",end:"2027-03-09",where:"Haldon Street, Lakemba. Thursday to Sunday nights, 6pm to 2am",fit:"Family night trade, over a million visitors across the month.",action:"Stallholder applications closed 19 December last year. Apply by 4 December.",src:"https://www.cbcity.nsw.gov.au/your-council/media-centre/whats-new-lakemba-nights-during-ramadan"},
+{id:"p-nrl",kind:"period",est:true,title:"NRL season",start:"2027-03-04",end:"2027-09-05",where:"Dragons at Jubilee (Kogarah), Bulldogs at Belmore and Accor Stadium",fit:"Home-game activations around $2,000 a game.",action:"Pitch clubs between 30 November and 29 January, before season deals close."},
+{id:"h-autumn",kind:"holiday",est:true,title:"NSW autumn school holidays",start:"2027-04-12",end:"2027-04-23",where:"All NSW public schools",fit:"Holiday sessions and parties.",action:"Confirm dates when the Department of Education publishes 2027 terms."},
+{id:"h-winter",kind:"holiday",est:true,title:"NSW winter school holidays",start:"2027-07-05",end:"2027-07-16",where:"All NSW public schools",fit:"Indoor sites: shopping centres, clubs, parents' night out.",action:"Book centres by 14 May."},
+{id:"h-spring27",kind:"holiday",est:true,title:"NSW spring school holidays",start:"2027-09-27",end:"2027-10-08",where:"All NSW public schools",fit:"Holiday sessions and parties.",action:"Lock private sites by early September."},
+// events
+{id:"e-halloween",kind:"event",title:"Halloween",start:"2026-10-31",where:"High-traffic trick-or-treat streets",fit:"Free 5-minute play, flyers, QR scans.",action:"QR landing page must be live by 24 October."},
+{id:"s-handover",kind:"swim",title:"SwimXP pool handover",start:"2026-10-28",where:"SwimXP",fit:"Around a week to fill, 2 days to heat, 48 hours of test running.",action:"Confirm the soft launch date."},
+{id:"s-soft",kind:"swim",est:true,title:"SwimXP soft launch, family and friends",start:"2026-11-07",where:"SwimXP",fit:"Photo and video shoot for the website: real faces build trust.",action:"Book the videographer."},
+{id:"s-free",kind:"swim",est:true,title:"SwimXP public free entry week",start:"2026-11-16",end:"2026-11-20",where:"SwimXP, 4pm to 7pm",fit:"Park the bus at the pool all week. Drive assessments and bookings.",action:"Facebook group posts and A-frames out the week before."},
+{id:"e-gta",kind:"event",title:"GTA VI release",start:"2026-11-19",where:"EB Games or The Gamesmen (Penrith)",fit:"18+ launch night, FIFA and barbecue format. PS5 and Xbox Series only.",action:"Pitch EB Games and The Gamesmen by 16 October.",src:"https://gtanerd.com/gta-6/release-date/"},
+{id:"e-ausday",kind:"event",title:"Australia Day",start:"2027-01-26",where:"Carss Park, Kogarah Bay (Georges River Council)",fit:"Activation zone next to the fireworks crowd.",action:"Contact the council events team by 13 November."},
+{id:"e-term1",kind:"event",est:true,title:"School Term 1 starts",start:"2027-02-01",where:"NSW schools",fit:"Pitch in-school programs for Terms 1 and 2.",action:"Program outline ready by 22 January."},
+{id:"e-lny",kind:"event",est:true,title:"Lunar New Year",start:"2027-02-06",where:"Hurstville and across Sydney",fit:"Family activation.",action:"Check Georges River Council event dates."},
+{id:"e-eid",kind:"event",est:true,title:"Eid al-Fitr: The Eid Show and MEFF",start:"2027-03-10",end:"2027-03-14",where:"The Eid Show, Bankstown Showground (multi-day). MEFF, Fairfield Showground.",fit:"Multi-day activation, strong family crowd. Clashes with the Easter Show: bus 1 can't do both.",action:"Contact both organisers by 4 December.",src:"https://www.sbs.com.au/language/urdu/en/article/eid-guide-2025/hib8pcilg"},
+{id:"e-easter",kind:"event",title:"Sydney Royal Easter Show",start:"2027-03-19",end:"2027-03-30",where:"Sydney Showground, Sydney Olympic Park",fit:"12 days, around 800,000 attendees. There is a small business area for first-time exhibitors.",action:"Request the 2027 commercial prospectus now. 25% non-refundable deposit on offer.",src:"https://www.eastershow.com.au/globalassets/document-library/easter-show/commercial-sponsorship/2027/sres2027_exhibitionsprospectus.pdf"},
+{id:"e-dgr",kind:"event",est:true,title:"The Distinguished Gentleman's Ride",start:"2027-05-16",where:"Sydney and worldwide",fit:"Local kids' ride tie-in through Mark.",action:"Raise it with Mark by 15 February."},
+{id:"e-adha",kind:"event",est:true,title:"Eid al-Adha",start:"2027-05-17",where:"The Eid Show has run an Eid al-Adha edition before",fit:"Second Eid activation window of the year.",action:"Ask The Eid Show organisers about 2027 dates."},
+{id:"e-supanova",kind:"event",title:"Supanova Comic Con and Gaming",start:"2027-06-18",end:"2027-06-20",where:"Sydney Showground, Sydney Olympic Park",fit:"Gaming and cosplay crowd. Exhibit or activate outside.",action:"Exhibitor enquiry by 12 March.",src:"https://www.supanova.com.au/"},
+{id:"e-oatley",kind:"event",est:true,title:"Oatley West Community Festival",start:"2027-08-27",end:"2027-08-29",where:"Oatley Park Ave, Oatley",fit:"Local family crowd.",action:"Stall application by 11 June.",src:"https://marketsandstallholders.com/events/oatley-west-community-festival/"},
+{id:"e-juniors",kind:"event",est:true,title:"Junior rugby league and OzTag finals",start:"2027-09-04",end:"2027-09-19",where:"Local grounds including Jubilee Oval, Kogarah",fit:"Park-ups at grounds on finals days.",action:"Contact clubs by 2 August."},
+{id:"e-lugarno",kind:"event",est:true,title:"Lugarno Lions Spring Festival",start:"2027-09-19",where:"Gannons Park, Peakhurst",fit:"Around 30,000 visitors and 100 stalls. Biggest local fair outside the Easter Show.",action:"Stallholder application by 25 June.",src:"https://www.lugarnolions.org.au/spring-festival/"},
+{id:"e-rwc",kind:"event",est:true,title:"Rugby World Cup starts in Australia",start:"2027-10-01",where:"Sydney and other host cities",fit:"Huge crowds and fan zones. Plan activations early.",action:"Start planning in mid-2027."},
+// deadlines
+{id:"d-sites",kind:"deadline",title:"Lock private sites for spring holidays",start:"2026-09-30",fit:"Flower Power, a gym, a cafe.",action:"Ali to call site contacts."},
+{id:"d-answers",kind:"deadline",title:"Priority answers due from Ali",start:"2026-10-02",fit:"Packages and pricing, lead flow, access. These block the QR landing page.",action:"Ali and Laila send the information form back."},
+{id:"d-easter",kind:"deadline",title:"Request Easter Show 2027 prospectus",start:"2026-10-02",fit:"Commercial exhibitor expression of interest.",action:"Email exhibitions@eastershow.com.au.",src:"https://www.eastershow.com.au/about-us/commercial-partnership-opportunities/"},
+{id:"d-rest",kind:"deadline",title:"All remaining answers due from Ali",start:"2026-10-09",fit:"Rest of the information form.",action:"Ali and Laila send the updated form."},
+{id:"d-eb",kind:"deadline",title:"Pitch EB Games and The Gamesmen",start:"2026-10-16",fit:"GTA VI launch night on 19 November.",action:"PresciaIQ drafts, Ali signs off."},
+{id:"d-schools",kind:"deadline",title:"Email principals and P&Cs",start:"2026-10-16",fit:"End-of-year picnic days, 23 November to 17 December.",action:"PresciaIQ drafts, Ali signs off."},
+{id:"d-centres",kind:"deadline",title:"Approach shopping centres",start:"2026-10-23",fit:"December Christmas trade.",action:"Southgate and Westfield centre management."},
+{id:"d-qr",kind:"deadline",title:"QR landing page and quote tool live",start:"2026-10-24",fit:"Needed before Halloween. Depends on the domain and Ali's priority answers.",action:"PresciaIQ build."},
+{id:"d-summer",kind:"deadline",title:"Open summer booking dates",start:"2026-11-02",fit:"Summer holidays 18 December to 27 January.",action:"Release limited dates."},
+{id:"d-carss",kind:"deadline",title:"Contact council for Australia Day",start:"2026-11-13",fit:"Carss Park fireworks, 26 January.",action:"Georges River Council events team."},
+{id:"d-nrl",kind:"deadline",title:"Start pitching NRL clubs",start:"2026-11-30",fit:"Home-game activations for the 2027 season. Window runs to 29 January.",action:"Dragons and Bulldogs community and partnerships teams."},
+{id:"d-lakemba",kind:"deadline",title:"Apply for Lakemba Nights stall",start:"2026-12-04",fit:"Last year's applications closed 19 December.",action:"Apply through NSW Neon Marketplace.",src:"https://www.neonmarketplace.nsw.gov.au/opportunity/nd/lakemba-nights-during-ramadan-2026-stallholder-exp"},
+{id:"d-eid",kind:"deadline",title:"Contact Eid show organisers",start:"2026-12-04",fit:"The Eid Show and MEFF, March 2027.",action:"Ask for 2027 dates and exhibitor terms."},
+{id:"d-program",kind:"deadline",title:"School program outline ready",start:"2027-01-22",fit:"For Term 1 pitches.",action:"Road safety pilot first."},
+{id:"d-dgr",kind:"deadline",title:"Raise kids' ride with Mark",start:"2027-02-15",fit:"The Distinguished Gentleman's Ride, May.",action:"Ali to call Mark."},
+{id:"d-supanova",kind:"deadline",title:"Supanova exhibitor enquiry",start:"2027-03-12",fit:"Supanova Sydney, 18 to 20 June.",action:"Exhibitor sales kit.",src:"https://exhibitors.supanova.com.au"},
+{id:"d-winter",kind:"deadline",title:"Book centres for winter holidays",start:"2027-05-14",fit:"Winter holidays in July.",action:"Shopping centres and clubs."},
+{id:"d-oatley",kind:"deadline",title:"Oatley West festival stall application",start:"2027-06-11",fit:"Festival in late August.",action:"Apply to the organisers."},
+{id:"d-lugarno",kind:"deadline",title:"Lugarno Lions stallholder application",start:"2027-06-25",fit:"Festival in September.",action:"Stallholder application package on the Lions site.",src:"https://www.lugarnolions.org.au/spring-festival/"},
+{id:"d-juniors",kind:"deadline",title:"Contact junior clubs for finals",start:"2027-08-02",fit:"Junior league and OzTag finals in September.",action:"Local clubs."}
+];
+(function(){
+var KINDS=[{k:"event",n:"Events"},{k:"deadline",n:"Deadlines"},{k:"holiday",n:"School holidays"},{k:"period",n:"Seasons and windows"},{k:"swim",n:"SwimXP launch"}];
+var KNAME={event:"Event",deadline:"Deadline",holiday:"School holidays",period:"Season or window",swim:"SwimXP launch"};
+var on={event:1,deadline:1,holiday:1,period:1,swim:1};
+var MIN=new Date(2026,8,1),MAX=new Date(2027,9,1),TODAY=new Date();TODAY.setHours(0,0,0,0);
+var cur=new Date(Math.max(MIN,new Date(TODAY.getFullYear(),TODAY.getMonth(),1)));if(cur>MAX)cur=new Date(MIN);
+var view="month",selDay=null,selItem=null;
+function P(s){var a=s.split("-");return new Date(+a[0],a[1]-1,+a[2]);}
+ITEMS.forEach(function(it){it.s=P(it.start);it.e=it.end?P(it.end):it.s;});
+ITEMS.sort(function(a,b){return a.s-b.s||(a.kind==="deadline")-(b.kind==="deadline");});
+function key(d){return d.getFullYear()+"-"+d.getMonth()+"-"+d.getDate();}
+function same(a,b){return a&&b&&key(a)===key(b);}
+function esc(s){return String(s||"").replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c];});}
+function fd(d,o){return d.toLocaleDateString("en-AU",o||{weekday:"short",day:"numeric",month:"short",year:"numeric"});}
+function when(it){if(same(it.s,it.e))return fd(it.s,{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+  return fd(it.s,{weekday:"short",day:"numeric",month:"short"})+" to "+fd(it.e,{weekday:"short",day:"numeric",month:"short",year:"numeric"});}
+function vis(it){return !!on[it.kind];}
+function isStrip(it){return it.kind==="holiday"||it.kind==="period";}
+function onDay(d){return ITEMS.filter(function(it){return vis(it)&&d>=it.s&&d<=it.e;});}
+
+/* filters */
+var f=document.getElementById("filters");
+KINDS.forEach(function(k){var l=document.createElement("label");l.className="k-"+k.k;l.innerHTML='<input type="checkbox" checked><span class="sw" style="background:var(--c)"></span><span>'+k.n+'</span>';
+  l.querySelector("input").onchange=function(e){on[k.k]=e.target.checked?1:0;draw();};f.appendChild(l);});
+
+function draw(){document.getElementById("mlabel").textContent=cur.toLocaleDateString("en-AU",{month:"long",year:"numeric"});
+  document.getElementById("prev").disabled=cur<=MIN;document.getElementById("next").disabled=new Date(cur.getFullYear(),cur.getMonth()+1,1)>MAX;
+  if(view==="month")drawGrid();else drawList();}
+
+function drawGrid(){var g=document.getElementById("grid");g.innerHTML="";
+  ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].forEach(function(d){var x=document.createElement("div");x.className="dow";x.textContent=d;g.appendChild(x);});
+  var first=new Date(cur.getFullYear(),cur.getMonth(),1),off=(first.getDay()+6)%7,start=new Date(first);start.setDate(1-off);
+  var weeks=Math.ceil((off+new Date(cur.getFullYear(),cur.getMonth()+1,0).getDate())/7);
+  var strips=ITEMS.filter(function(it){return vis(it)&&isStrip(it);});
+  for(var i=0;i<weeks*7;i++){var d=new Date(start);d.setDate(start.getDate()+i);
+    var b=document.createElement("button");b.type="button";b.className="day"+(d.getMonth()!==cur.getMonth()?" out":"")+(same(d,TODAY)?" today":"")+(same(d,selDay)?" sel":"");
+    var items=onDay(d),chips=items.filter(function(it){return !isStrip(it);});
+    b.setAttribute("aria-label",fd(d,{weekday:"long",day:"numeric",month:"long"})+(items.length?", "+items.length+" item"+(items.length>1?"s":""):""));
+    var h='<div class="dn"><span>'+d.getDate()+'</span></div>';
+    strips.forEach(function(it){if(d>=it.s&&d<=it.e){var label=same(d,it.s)||d.getDay()===1||d.getDate()===1;h+='<div class="strip k-'+it.kind+(it.est?" est":"")+(label?"":" cont")+'">'+esc(it.title)+'</div>';}});
+    chips.slice(0,3).forEach(function(it){h+='<div class="chip k-'+it.kind+(it.est?" est":"")+'">'+esc(it.title)+'</div>';});
+    if(chips.length>3)h+='<div class="more">+'+(chips.length-3)+' more</div>';
+    h+='<div class="dots">'+items.map(function(it){return '<i class="dot k-'+it.kind+'"></i>';}).join("")+'</div>';
+    b.innerHTML=h;(function(dd){b.onclick=function(){selDay=dd;selItem=null;drawGrid();detailDay(dd);};})(d);g.appendChild(b);}}
+
+function drawList(){var L=document.getElementById("list");L.innerHTML="";var m=-1;
+  ITEMS.filter(vis).forEach(function(it){var mk=it.s.getFullYear()*12+it.s.getMonth();
+    if(mk!==m){m=mk;var h=document.createElement("h3");h.textContent=it.s.toLocaleDateString("en-AU",{month:"long",year:"numeric"});L.appendChild(h);}
+    var r=document.createElement("button");r.type="button";r.className="row k-"+it.kind+(selItem===it?" sel":"");
+    r.innerHTML='<span class="d">'+(same(it.s,it.e)?fd(it.s,{weekday:"short",day:"numeric",month:"short"}):fd(it.s,{day:"numeric",month:"short"})+" to "+fd(it.e,{day:"numeric",month:"short"}))+'</span><span class="t">'+esc(it.title)+(it.est?' <span style="color:var(--muted);font-weight:400">(est.)</span>':"")+'</span><span class="k">'+KNAME[it.kind]+'</span>';
+    r.onclick=function(){selItem=it;drawList();detailItems([it],null);if(window.innerWidth<980)document.getElementById("detail").scrollIntoView({behavior:"smooth"});};L.appendChild(r);});}
+
+function card(it){return '<div class="item k-'+it.kind+'"><div class="type">'+KNAME[it.kind]+(it.est?'<span class="est-tag">Estimated date</span>':"")+'</div><h3>'+esc(it.title)+'</h3><div class="when">'+when(it)+'</div><dl>'+
+  (it.where?'<dt>Where</dt><dd>'+esc(it.where)+'</dd>':"")+(it.fit?'<dt>'+(it.kind==="deadline"?"What it's for":"How ArenaXP fits")+'</dt><dd>'+esc(it.fit)+'</dd>':"")+(it.action?'<dt>'+(it.kind==="deadline"?"Who does it":"Action and deadline")+'</dt><dd>'+esc(it.action)+'</dd>':"")+'</dl>'+
+  '<div class="acts"><button type="button" data-ics="'+it.id+'">Add to my calendar</button>'+(it.src?'<a href="'+esc(it.src)+'" target="_blank" rel="noopener">Source</a>':"")+'</div></div>';}
+function detailItems(items,d){var a=document.getElementById("detail");
+  a.innerHTML=(d?'<p class="aside-h">'+fd(d,{weekday:"long",day:"numeric",month:"long",year:"numeric"})+'</p>':"")+(items.length?items.map(card).join(""):'<p class="empty">Nothing booked or due on this day.</p>');
+  a.querySelectorAll("[data-ics]").forEach(function(b){b.onclick=function(){var it=ITEMS.find(function(x){return x.id===b.dataset.ics;});ics([it],it.title);};});}
+function detailDay(d){detailItems(onDay(d),d);if(window.innerWidth<980)document.getElementById("detail").scrollIntoView({behavior:"smooth"});}
+function intro(){var nx=ITEMS.filter(function(it){return it.kind==="deadline"&&it.e>=TODAY;}).slice(0,4);
+  document.getElementById("detail").innerHTML='<p class="aside-h">Next deadlines</p>'+nx.map(card).join("")+'<p class="empty" style="font-size:14px">Select a day or event for details.</p>';
+  document.querySelectorAll("#detail [data-ics]").forEach(function(b){b.onclick=function(){var it=ITEMS.find(function(x){return x.id===b.dataset.ics;});ics([it],it.title);};});}
+
+/* calendar file */
+function ymd(d){return d.getFullYear()+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0");}
+function icsEsc(s){return String(s||"").replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");}
+function ics(items,name){var L=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//PresciaIQ//ArenaXP calendar//EN","CALSCALE:GREGORIAN"];
+  items.forEach(function(it){var e=new Date(it.e);e.setDate(e.getDate()+1);
+    L.push("BEGIN:VEVENT","UID:"+it.id+"@arenaxp-calendar","DTSTAMP:"+ymd(new Date())+"T000000Z","DTSTART;VALUE=DATE:"+ymd(it.s),"DTEND;VALUE=DATE:"+ymd(e),
+      "SUMMARY:"+icsEsc((it.kind==="deadline"?"Deadline: ":"ArenaXP: ")+it.title+(it.est?" (est.)":"")),
+      "DESCRIPTION:"+icsEsc([it.where&&("Where: "+it.where),it.fit&&("Fit: "+it.fit),it.action&&("Action: "+it.action),it.src&&("Source: "+it.src)].filter(Boolean).join("\n")),"END:VEVENT");});
+  L.push("END:VCALENDAR");var b=new Blob([L.join("\r\n")],{type:"text/calendar"}),u=URL.createObjectURL(b),a=document.createElement("a");
+  a.href=u;a.download=(name||"ArenaXP-calendar").replace(/[^\w\- ]+/g,"").trim().replace(/\s+/g,"-")+".ics";document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(u);a.remove();},1000);}
+document.getElementById("dlAll").onclick=function(){ics(ITEMS.filter(vis),"ArenaXP-calendar-2026-27");};
+
+document.getElementById("prev").onclick=function(){cur=new Date(cur.getFullYear(),cur.getMonth()-1,1);if(view==="list")view="month";setView();};
+document.getElementById("next").onclick=function(){cur=new Date(cur.getFullYear(),cur.getMonth()+1,1);setView();};
+function setView(){document.getElementById("vMonth").setAttribute("aria-pressed",view==="month");document.getElementById("vList").setAttribute("aria-pressed",view==="list");
+  document.getElementById("gridWrap").classList.toggle("off",view!=="month");document.getElementById("list").classList.toggle("on",view==="list");
+  document.querySelector(".nav").style.visibility=view==="month"?"visible":"hidden";draw();}
+document.getElementById("vMonth").onclick=function(){view="month";setView();};
+document.getElementById("vList").onclick=function(){view="list";setView();};
+document.addEventListener("keydown",function(e){if(view!=="month"||/INPUT|TEXTAREA/.test(e.target.tagName))return;if(e.key==="ArrowLeft"&&!document.getElementById("prev").disabled)document.getElementById("prev").click();if(e.key==="ArrowRight"&&!document.getElementById("next").disabled)document.getElementById("next").click();});
+setView();intro();
+})();
+</script></body></html>
